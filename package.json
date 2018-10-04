@@ -37,9 +37,10 @@
     }
   },
   "dependencies": {
-    "connected-react-router": "^4.5.0",
-    "enzyme": "^3.6.0",
-    "enzyme-to-json": "^3.3.4",
+    "connected-react-router": "4.5.0",
+    "enzyme": "3.6.0",
+    "enzyme-adapter-react-16": "1.5.0",
+    "enzyme-to-json": "3.3.4",
     "history": "4.7.2",
     "hoist-non-react-statics": "3.0.1",
     "react": "16.5.2",
@@ -82,18 +83,60 @@
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-redux-saga": "0.9.0",
-    "husky": "^1.1.0",
+    "husky": "1.1.0",
+    "jest": "23.6.0",
     "jest-cli": "23.6.0",
     "jest-styled-components": "6.2.0",
     "lint-staged": "7.2.2",
     "prettier": "1.14.2",
     "prettier-eslint": "8.8.2"
   },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --max-warnings 0",
+        "git add",
+        "jest --bail --findRelatedTests"
+      ]
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/**/*.test.{js,jsx}",
+      "!src/containers/**/index.{js,jsx}",
+      "!src/containers/**/tests/index.{js,jsx}",
+      "!src/app.js",
+      "!src/global-styles.js",
+      "!src/storeConf.js",
+      "!src/routes.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 80,
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "jest",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "format": "node node_modules/prettier/bin-prettier.js --write  \"src/**/*.js\"",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll",
+    "test:watch:cov": "jest --watchAll --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "eslintConfig": {
     "extends": "react-app"
