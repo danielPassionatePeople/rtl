@@ -12,6 +12,15 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
+const Logo = styled.img`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  padding: 10px 20px;
+  z-index: 100;
+`;
+
 export class App extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
@@ -21,6 +30,7 @@ export class App extends React.PureComponent {
     const children = React.Children.toArray(this.props.children);
     return (
       <div>
+        <Logo src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/RTL_logo.svg/105px-RTL_logo.svg.png" />
         <Wrapper>
           <Switch>{children}</Switch>
         </Wrapper>
