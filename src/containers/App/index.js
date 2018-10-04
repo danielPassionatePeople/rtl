@@ -8,6 +8,8 @@ const Wrapper = styled.div`
   display: block;
   width: 100%;
   min-height: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 `;
 
 export class App extends React.PureComponent {

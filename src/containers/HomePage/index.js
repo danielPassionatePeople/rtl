@@ -9,6 +9,8 @@ import injectReducer from '../../utils/internal/injectReducer';
 import injectSaga from '../../utils/internal/injectSaga';
 import saga from './sagas';
 import reducer from './reducer';
+import { SHOW_IDS_LIST } from './constants';
+import homeConnector from './selectors';
 
 const dispatchers = mapDispatchers({
   loadShowPage,
@@ -21,12 +23,12 @@ export default compose(
   withReducer,
   withSaga,
   connect(
-    undefined,
+    homeConnector,
     dispatchers
   ),
   lifecycle({
     componentDidMount() {
-      this.props.loadShowPage(6771);
+      this.props.loadShowPage(SHOW_IDS_LIST);
     },
   })
 )(HomePageComponent);

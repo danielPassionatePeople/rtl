@@ -19,7 +19,7 @@ injectGlobal`
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #F3F3F3;
-    background-color: #121212;
+    background-color: #28313b;
   }
 
   body.fontLoaded {
@@ -27,7 +27,6 @@ injectGlobal`
   }
   
   #app {
-    background-color: #121212;
     min-height: 100%;
     min-width: 100%;
     width: 100%;
