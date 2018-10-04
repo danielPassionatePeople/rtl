@@ -1,19 +1,32 @@
-import React from 'react';
-import logo from '../../logo.svg';
-import '../../App.css';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import lifecycle from 'recompose/lifecycle';
+import { loadShowPage } from './actions';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+import { mapDispatchers } from '../../utils/internal/redux-utils';
+import HomePageComponent from './component';
+import injectReducer from '../../utils/internal/injectReducer';
+import injectSaga from '../../utils/internal/injectSaga';
+import saga from './sagas';
+import reducer from './reducer';
 
-export default App;
+const dispatchers = mapDispatchers({
+  loadShowPage,
+});
+
+const withReducer = injectReducer({ key: 'home', reducer });
+const withSaga = injectSaga({ key: 'home', saga });
+
+export default compose(
+  withReducer,
+  withSaga,
+  connect(
+    undefined,
+    dispatchers
+  ),
+  lifecycle({
+    componentDidMount() {
+      this.props.loadShowPage(6771);
+    },
+  })
+)(HomePageComponent);

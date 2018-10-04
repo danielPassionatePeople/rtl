@@ -1,3 +1,4 @@
+// @TODO if not used
 const initialState = {
   isReady: false,
 };

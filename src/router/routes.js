@@ -1,12 +1,18 @@
 import Loadable from 'react-loadable';
-import { HOMEPAGE_ROUTE } from './constants';
+import { HOMEPAGE_ROUTE, DETAILS_PAGE } from './constants';
 import Loader from '../components/Loader';
 
 const routeConfig = [
   {
     path: HOMEPAGE_ROUTE,
     name: 'homePage',
-    getModules: () => import('../containers/HomePage/index'),
+    exact: true,
+    getModules: () => import('../containers/HomePage'),
+  },
+  {
+    path: DETAILS_PAGE,
+    name: 'detailsPage',
+    getModules: () => import('../containers/DetailsPage'),
   },
 ];
 
