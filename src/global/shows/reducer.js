@@ -1,6 +1,6 @@
 import { LOAD_SHOWS, LOAD_SHOWS_SUCCESS, LOAD_SHOWS_FAIL } from './constants';
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   data: null,
 };

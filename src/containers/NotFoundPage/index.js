@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { HOMEPAGE_ROUTE } from '../../router/constants';
+import H1 from '../../components/H1';
 
 const NotFoundPage = () => (
   <Wrap>
@@ -17,10 +18,8 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Title = styled.h1`
-  color: white;
+const Title = styled(H1)`
   font-size: 30px;
-  font-family: 'Roboto', sans-serif;
 `;
 
 const StyledLink = styled(Link)`

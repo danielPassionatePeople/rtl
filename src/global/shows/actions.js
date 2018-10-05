@@ -1,4 +1,4 @@
-import { LOAD_SHOWS, LOAD_SHOWS_SUCCESS } from './constants';
+import { LOAD_SHOWS, LOAD_SHOWS_SUCCESS, LOAD_SHOWS_FAIL } from './constants';
 
 export function loadShows(ids) {
   return {
@@ -15,5 +15,11 @@ export function loadShowsSuccess(shows) {
     payload: {
       shows,
     },
+  };
+}
+
+export function loadShowsFail() {
+  return {
+    type: LOAD_SHOWS_FAIL,
   };
 }
