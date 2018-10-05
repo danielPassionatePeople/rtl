@@ -34,7 +34,7 @@ const DetailsComponent = ({ item, genres, episodes, onClickEpisode, isEpisode, m
                 <Carousel data={episodes} carouselItem={CarouselItem} onClick={onClickEpisode} />
               </CarouselWrap>
             )}
-          {isEpisode && <StyledLink to={`${DETAILS_PAGE}/${match.params.id}`}>Go to show</StyledLink>}
+          {isEpisode && <StyledLink to={`${DETAILS_PAGE}/${match.params.id}`}>Go back to the show</StyledLink>}
         </InnerWrap>
       </Metadata>
     </Grid>
