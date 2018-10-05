@@ -1,38 +1,38 @@
-import showsReducer, { initialState } from '../reducer';
-import { loadShows, loadShowsSuccess, loadShowsFail } from '../actions';
+import episodesReducer, { initialState } from '../reducer';
+import { loadEpisodes, loadEpisodesSuccess, loadEpisodesFail } from '../actions';
 
 describe('shows reducer', () => {
   it('should create the expected initial state', () => {
     expect(
-      showsReducer(undefined, {
+      episodesReducer(undefined, {
         isLoading: false,
         data: null,
       })
     ).toEqual(initialState);
   });
-  describe('loadShows', () => {
+  describe('loadEpisodes', () => {
     it('should set isLoading to true ', () => {
-      expect(showsReducer(initialState, loadShows())).toEqual({
+      expect(episodesReducer(initialState, loadEpisodes())).toEqual({
         ...initialState,
         isLoading: true,
       });
     });
   });
-  describe('loadShowsSuccess', () => {
+  describe('loadEpisodesSuccess', () => {
     it('should set isLoading to false and set the data to the value of the payload  ', () => {
       const payload = {
-        shows: [],
+        episodes: [],
       };
-      expect(showsReducer(initialState, loadShowsSuccess(payload.shows))).toEqual({
+      expect(episodesReducer(initialState, loadEpisodesSuccess(payload.episodes))).toEqual({
         ...initialState,
         isLoading: false,
         data: [],
       });
     });
   });
-  describe('loadShowsFail', () => {
+  describe('loadEpisodesFail', () => {
     it('should set isLoading to false', () => {
-      expect(showsReducer(initialState, loadShowsFail())).toEqual({
+      expect(episodesReducer(initialState, loadEpisodesFail())).toEqual({
         ...initialState,
         isLoading: false,
       });

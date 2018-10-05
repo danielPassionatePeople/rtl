@@ -5,17 +5,17 @@
   "babel": {
     "plugins": [
       "styled-components",
-      "syntax-dynamic-import"
+      "syntax-dynamic-import",
+      "@babel/plugin-proposal-function-bind"
     ],
     "presets": [
       [
-        "env",
+        "@babel/preset-env",
         {
           "modules": false
         }
       ],
-      "react",
-      "stage-0"
+      "@babel/preset-react"
     ],
     "env": {
       "production": {
@@ -63,23 +63,24 @@
     "styled-components": "3.4.9"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.3",
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-function-bind": "7.0.0",
+    "@babel/polyfill": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-stage-0": "7.0.0",
     "babel-eslint": "9.0.0",
-    "babel-plugin-dynamic-import-node": "2.1.0",
-    "babel-plugin-react-intl": "3.0.0",
+    "babel-plugin-dynamic-import-node": "1.2.0",
+    "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-react-transform": "3.0.0",
-    "babel-plugin-styled-components": "1.7.1",
-    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-plugin-styled-components": "1.5.1",
     "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
     "babel-plugin-transform-react-constant-elements": "6.23.0",
     "babel-plugin-transform-react-inline-elements": "6.22.0",
     "babel-plugin-transform-react-jsx-source": "6.22.0",
-    "babel-plugin-transform-react-remove-prop-types": "0.4.15",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.13",
     "babel-polyfill": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-react": "6.24.1",
-    "babel-preset-stage-0": "6.24.1",
     "eslint": "5.6.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",
@@ -91,7 +92,7 @@
     "eslint-plugin-redux-saga": "0.9.0",
     "husky": "1.1.0",
     "jest": "23.6.0",
-    "jest-cli": "23.6.0",
+    "jest-cli": "23.1.0",
     "jest-styled-components": "6.2.0",
     "lint-staged": "7.2.2",
     "prettier": "1.14.2",
@@ -125,12 +126,19 @@
         "lines": 80
       }
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
     "moduleDirectories": [
       "node_modules",
       "src"
     ],
-    "testRegex": "tests/.*\\.test\\.js$"
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/image.js"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
+    "testRegex": "tests/.*\\.test\\.js$",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",

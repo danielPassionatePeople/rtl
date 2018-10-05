@@ -1,4 +1,4 @@
-import { LOAD_EPISODES, LOAD_EPISODES_SUCCESS } from './constants';
+import { LOAD_EPISODES, LOAD_EPISODES_SUCCESS, LOAD_EPISODES_FAIL } from './constants';
 
 export function loadEpisodes(id) {
   return {
@@ -15,5 +15,11 @@ export function loadEpisodesSuccess(episodes) {
     payload: {
       episodes,
     },
+  };
+}
+
+export function loadEpisodesFail() {
+  return {
+    type: LOAD_EPISODES_FAIL,
   };
 }

@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
   cursor: pointer;
   position: fixed;
   top: 0;
