@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import { isMobile, isTablet } from 'react-device-detect';
 import { SIZES } from '../../styles/media';
 
 const Carousel = ({ data, carouselItem: CarouselItem, onClick }) => (
@@ -39,7 +40,7 @@ const settings = {
   ],
   speed: 200,
   touchThreshold: 20,
-  swipe: true,
+  swipe: isMobile || isTablet,
 };
 
 Carousel.propTypes = {
