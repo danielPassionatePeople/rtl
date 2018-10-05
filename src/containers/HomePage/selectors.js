@@ -1,7 +1,5 @@
-import { createSelector, createStructuredSelector } from 'reselect';
-
-export const selectHomeDomain = ({ home }) => home;
-export const selectShows = createSelector(selectHomeDomain, (homeState) => homeState.shows);
+import { createStructuredSelector } from 'reselect';
+import { selectShows } from '../../global/shows/selectors';
 
 export default createStructuredSelector({
   shows: selectShows,

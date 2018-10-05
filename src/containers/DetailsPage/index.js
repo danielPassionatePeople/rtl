@@ -1,16 +1,22 @@
-import React from 'react';
-import logo from '../../logo.svg';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+// import { loadShows } from './actions';
+// import { mapDispatchers } from '../../utils/internal/redux-utils';
+import DetailsComponent from './component';
+import detailsConnector from './selectors';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>This is the details page</p>
-      <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+// const dispatchers = mapDispatchers({
+//   loadShows,
+// });
 
-export default App;
+// const withReducer = injectReducer({ key: 'home', reducer });
+// const withSaga = injectSaga({ key: 'home', saga });
+
+export default compose(
+  // withReducer,
+  // withSaga,
+  connect(
+    detailsConnector,
+    undefined
+  )
+)(DetailsComponent);

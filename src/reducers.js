@@ -7,6 +7,7 @@ import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 import history from './router/history';
 import appReducer from './containers/App/reducer';
+import showsReducer from './global/shows/reducer';
 
 /**
  * Creates the main reducer with the asynchronously loaded ones
@@ -14,6 +15,7 @@ import appReducer from './containers/App/reducer';
 export default function createReducer(asyncReducers) {
   const reducers = combineReducers({
     app: appReducer,
+    shows: showsReducer,
     ...asyncReducers,
   });
   // TODO possible improvement, move it as a 'withReducer' in the App container

@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import Card from '../../components/Card';
 import media from '../../styles/media';
 
-const HomePage = ({ shows }) => (
+const HomePage = ({ shows, onClickShow }) => (
   <Wrap>
     <Grid>
       {shows &&
         shows.map((show) => (
-          <StyledCard key={show.id}>
+          <StyledCard key={show.id} onClick={() => onClickShow(show.id)}>
             <Cover src={show.image.original} />
             <Metadata>
               <Title>{show.name}</Title>
@@ -22,6 +22,7 @@ const HomePage = ({ shows }) => (
 
 HomePage.propTypes = {
   shows: PropTypes.array,
+  onClickShow: PropTypes.func,
 };
 
 const Wrap = styled.div`
@@ -29,6 +30,8 @@ const Wrap = styled.div`
   position: relative;
   height: 100%;
   padding: 30px;
+  max-width: 1024px;
+  margin: 0 auto;
 `;
 
 const Grid = styled.div`

@@ -1,25 +1,25 @@
-import { LOAD_SHOWS_PAGE, LOAD_SHOWS_PAGE_SUCCESS, LOAD_SHOWS_PAGE_FAIL } from './constants';
+import { LOAD_SHOWS, LOAD_SHOWS_SUCCESS, LOAD_SHOWS_FAIL } from './constants';
 
 const initialState = {
   isLoading: false,
-  shows: null,
+  data: null,
 };
 
-export default function epgReducer(state = initialState, action) {
+export default function showsReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case LOAD_SHOWS_PAGE:
+    case LOAD_SHOWS:
       return {
         ...state,
         isLoading: true,
       };
-    case LOAD_SHOWS_PAGE_SUCCESS:
+    case LOAD_SHOWS_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        shows: payload.shows,
+        data: payload.shows,
       };
-    case LOAD_SHOWS_PAGE_FAIL:
+    case LOAD_SHOWS_FAIL:
       return {
         ...state,
         isLoading: false,

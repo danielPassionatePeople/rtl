@@ -10,8 +10,9 @@ const routeConfig = [
     getModules: () => import('../containers/HomePage'),
   },
   {
-    path: DETAILS_PAGE,
+    path: `${DETAILS_PAGE}/:id`,
     name: 'detailsPage',
+    exact: true,
     getModules: () => import('../containers/DetailsPage'),
   },
 ];
