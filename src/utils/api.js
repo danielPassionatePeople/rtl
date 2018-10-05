@@ -1,4 +1,4 @@
-export const SERVER_DOMAIN = 'http://api.tvmaze.com';
+export const SERVER_DOMAIN = 'https://api.tvmaze.com';
 
 // HTTP GET Request - Returns Resolved or Rejected Promise
 export const get = (path) =>
