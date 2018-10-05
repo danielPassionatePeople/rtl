@@ -10,6 +10,18 @@ import { loadShows } from '../../global/shows/actions';
 import { HOMEPAGE_ROUTE } from '../../router/constants';
 import browserHistory from '../../router/history';
 
+const App = ({ children }) => (
+  <Fragment>
+    <Logo
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/RTL_logo.svg/105px-RTL_logo.svg.png"
+      onClick={() => browserHistory.push(HOMEPAGE_ROUTE)}
+    />
+    <Wrapper>
+      <Switch>{React.Children.toArray(children)}</Switch>
+    </Wrapper>
+  </Fragment>
+);
+
 const Wrapper = styled.div`
   display: block;
   width: 100%;
@@ -27,26 +39,9 @@ const Logo = styled.img`
   z-index: 100;
 `;
 
-export class App extends React.PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-  };
-
-  render() {
-    const children = React.Children.toArray(this.props.children);
-    return (
-      <Fragment>
-        <Logo
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/RTL_logo.svg/105px-RTL_logo.svg.png"
-          onClick={() => browserHistory.push(HOMEPAGE_ROUTE)}
-        />
-        <Wrapper>
-          <Switch>{children}</Switch>
-        </Wrapper>
-      </Fragment>
-    );
-  }
-}
+App.propTypes = {
+  children: PropTypes.node,
+};
 
 const dispatchers = mapDispatchers({
   loadShows,

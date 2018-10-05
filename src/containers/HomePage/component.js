@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Card from '../../components/Card';
 import media from '../../styles/media';
+import H1 from '../../components/H1';
 
 const HomePage = ({ shows, onClickShow }) => (
   <Wrap>
@@ -51,7 +52,6 @@ const StyledCard = styled(Card)`
   flex-direction: column;
   background: white;
   border-radius: 10px;
-  display: flex;
   box-shadow: 0 2px 2px #ccc;
   text-align: center;
   width: 100%;
@@ -75,12 +75,10 @@ const Metadata = styled.div`
   padding: 0 10px;
 `;
 
-const Title = styled.h1`
+const Title = styled(H1)`
   color: black;
   font-size: 19px;
   margin: 10px 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
 `;
 
 export default HomePage;

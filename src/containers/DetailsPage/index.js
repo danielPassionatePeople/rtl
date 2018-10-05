@@ -41,4 +41,4 @@ export default compose(
     renderComponent(Loader),
     renderComponent(DetailsComponent)
   )
-)(DetailsComponent);
+)();

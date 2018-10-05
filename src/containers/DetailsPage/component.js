@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import { path } from 'ramda';
 import Hero from '../../components/Hero';
 import Carousel from '../../components/Carousel';
+import Label from '../../components/Label';
 import CarouselItem from './CarouselItem';
 import { DETAILS_PAGE } from '../../router/constants';
+import H1 from '../../components/H1';
 
 const getImage = (item) => path(['image', 'original'], item);
 
@@ -59,12 +61,8 @@ const Grid = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.h1`
-  color: white;
-  font-size: 24px;
+const Title = styled(H1)`
   margin: 10px 0;
-  font-family: 'Roboto', sans-serif;
-  text-align: left;
 `;
 
 const Metadata = styled.div`
@@ -90,15 +88,6 @@ const LabelsSection = styled.div`
 `;
 
 const Description = styled.article`
-  font-size: 14px;
-`;
-
-const Label = styled.div`
-  padding: 4px 10px;
-  border: 1px solid #737373;
-  border-radius: 2px;
-  margin: 0 5px;
-  color: #737373;
   font-size: 14px;
 `;
 

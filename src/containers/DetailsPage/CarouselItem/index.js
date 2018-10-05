@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
 import Card from '../../../components/Card';
+import H1 from '../../../components/H1';
 
 const CarouselItem = ({ item, onClick }) => (
   <Fragment>
@@ -38,14 +39,12 @@ const Cover = styled.img`
   background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
 `;
 
-const Title = styled.h1`
-  color: white;
+const Title = styled(H1)`
   font-size: 20px;
-  max-width: 160px;
+  max-width: 160px; /* TODO This can be done properly */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: 'Roboto', sans-serif;
   position: absolute;
   bottom: 5px;
   left: 10px;

@@ -6,7 +6,6 @@
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 import history from './router/history';
-import appReducer from './containers/App/reducer';
 import showsReducer from './global/shows/reducer';
 import episodesReducer from './global/episodes/reducer';
 
@@ -15,7 +14,6 @@ import episodesReducer from './global/episodes/reducer';
  */
 export default function createReducer(asyncReducers) {
   const reducers = combineReducers({
-    app: appReducer,
     shows: showsReducer,
     episodes: episodesReducer,
     ...asyncReducers,
