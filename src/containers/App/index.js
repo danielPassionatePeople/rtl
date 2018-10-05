@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -35,7 +35,7 @@ export class App extends React.PureComponent {
   render() {
     const children = React.Children.toArray(this.props.children);
     return (
-      <div>
+      <Fragment>
         <Logo
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/RTL_logo.svg/105px-RTL_logo.svg.png"
           onClick={() => browserHistory.push(HOMEPAGE_ROUTE)}
@@ -43,7 +43,7 @@ export class App extends React.PureComponent {
         <Wrapper>
           <Switch>{children}</Switch>
         </Wrapper>
-      </div>
+      </Fragment>
     );
   }
 }

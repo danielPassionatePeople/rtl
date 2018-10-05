@@ -1,17 +1,34 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { selectShows } from '../../global/shows/selectors';
+import { prop } from 'ramda';
+import { selectShows, selectIsShowsLoading } from '../../global/shows/selectors';
 import { makeSelectRouteParams } from '../../router/selectors';
+import { selectEpisodes, selectIsEpisodesLoading } from '../../global/episodes/selectors';
+
+const getGenres = prop('genres');
+
+const findItemInListById = (id, list) => list && list.find((item) => String(item.id) === id);
 
 const selectSelectedShow = createSelector(
   selectShows,
+  selectEpisodes,
   makeSelectRouteParams(),
-  (shows, routeParams) => (shows ? shows.find((show) => String(show.id) === routeParams.id) : null)
+  (shows, episodes, routeParams) => {
+    if (routeParams.episodeId) {
+      return episodes ? findItemInListById(routeParams.episodeId, episodes) : {};
+    }
+    return findItemInListById(routeParams.id, shows);
+  }
 );
 
-// Just to make the code cleaner when rendering it in the component
-const selectGenres = createSelector(selectSelectedShow, ({ genres }) => (Array.isArray(genres) ? genres : [genres]));
+const selectGenres = createSelector(selectSelectedShow, (item) => {
+  const genres = getGenres(item);
+  return Array.isArray(genres) ? genres : null;
+});
 
 export default createStructuredSelector({
-  show: selectSelectedShow,
+  item: selectSelectedShow,
   genres: selectGenres,
+  episodes: selectEpisodes,
+  isShowsLoading: selectIsShowsLoading,
+  isEpisodesLoading: selectIsEpisodesLoading,
 });

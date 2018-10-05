@@ -16,6 +16,10 @@ injectGlobal`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  #root {
+    height: 100%;
+  }
+
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #F3F3F3;
@@ -37,4 +41,6 @@ injectGlobal`
   label {
     line-height: 1.5em;
   }
+
+
 `;

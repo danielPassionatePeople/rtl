@@ -1,42 +1,19 @@
-/**
- *
- * Loader
- *
- */
 import React from 'react';
-import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import Wrapper from './Wrapper';
 
-const Loader = ({ color, style = {} }) => (
-  <Wrapper style={style}>
-    <div className="spinner-container">
-      <SpinnerLayer color={color}>
-        <div className="circle-clipper left">
-          <div className="circle" />
-        </div>
-        <div className="gap-patch">
-          <div className="circle" />
-        </div>
-        <div className="circle-clipper right">
-          <div className="circle" />
-        </div>
-      </SpinnerLayer>
-    </div>
-  </Wrapper>
+const Spinner = () => (
+  <Wrap>
+    <Loader type="Bars" color="white" height="100" width="100" />
+  </Wrap>
 );
 
-Loader.propTypes = {
-  color: PropTypes.string,
-  style: PropTypes.object,
-};
-
-const SpinnerLayer = styled.div`
-  position: absolute;
+const Wrap = styled.div`
+  height: 100vh;
   width: 100%;
-  height: 100%;
-  opacity: 1;
-  border-color: ${(props) => props.color || '#009900'};
-  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-export default Loader;
+
+export default Spinner;
