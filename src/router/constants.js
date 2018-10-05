@@ -1,4 +1,4 @@
-export const HOMEPAGE_ROUTE = '/';
-export const DETAILS_PAGE = '/details';
-export const EPISODE_PAGE = '/episode';
+export const HOMEPAGE_ROUTE = 'rtl/';
+export const DETAILS_PAGE = 'rtl/details';
+export const EPISODE_PAGE = 'rtl/episode';
 export const NOT_FOUND_ROUTE = '*';
