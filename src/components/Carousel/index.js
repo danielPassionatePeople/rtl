@@ -39,7 +39,7 @@ const settings = {
   ],
   speed: 200,
   touchThreshold: 20,
-  swipe: false,
+  swipe: true,
 };
 
 Carousel.propTypes = {

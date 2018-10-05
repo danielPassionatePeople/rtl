@@ -13,7 +13,7 @@ import browserHistory from '../../router/history';
 const App = ({ children }) => (
   <Fragment>
     <Logo
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/RTL_logo.svg/105px-RTL_logo.svg.png"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/RTL_Nederland.svg/2000px-RTL_Nederland.svg.png"
       onClick={() => browserHistory.push(HOMEPAGE_ROUTE)}
     />
     <Wrapper>
